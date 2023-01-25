@@ -7,13 +7,14 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $telefone = filter_input(INPUT_POST, 'telefone');
 // $senha = filter_input(INPUT_POST, 'senha');
 
-if($nome && $email && $telefone && $senha):
-    
+if($nome && $email && $telefone){
+
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
     $sql->bindValue(':email', $email);
     $sql->execute();
+    
+    if($sql->rowCount() === 0){
 
-    if($sql->rowCount() === 0):
         $sql = $pdo->prepare("INSERT INTO usuarios(nome, email, telefone)  VALUES (:nome, :email, :telefone)");
         
         $sql->bindValue(':nome', $nome);
@@ -24,10 +25,11 @@ if($nome && $email && $telefone && $senha):
         
         header("Location: index.php");
         exit;
-    else:
+    } else {
         header("Location: cadastrar.php");
-    endif;
-
-else:
+    }
+    
+} else {
     header("Location: cadastrar.php");
-endif;
+}
+    

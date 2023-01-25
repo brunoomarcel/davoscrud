@@ -17,13 +17,13 @@ require 'includes/header.php';
     
     <div class="item">
         <label for="telefone">Telefone</label>
-        <input type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx">
+        <input type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" pattern="[0-9]{1,5}">
     </div>
 
     <div class="item">
         <label>Senha: </label>
         <input type="password" name="senha">
     </div>
-    
+
     <input type="submit" value="SALVAR">
 </form>
