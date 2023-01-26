@@ -21,7 +21,6 @@ if($sql->rowCount() > 0){
   <body>
     <main>
         <div class="container-tabelas">
-
             <h1>Lista de Alunos</h1>
             <table class="table">
                 <thead>

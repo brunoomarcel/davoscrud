@@ -35,7 +35,6 @@ CREATE TABLE `usuarios` (
   `situacao` varchar(12) NOT NULL,
   `mensalidade` varchar(32) NOT NULL,
   `senha` varchar(32) NOT NULL,
-  `observacao` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
