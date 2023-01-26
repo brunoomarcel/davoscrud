@@ -24,6 +24,8 @@ if($sql->rowCount() > 0){
                         <th scope="col">Telefone</th>
                         <th scope="col">Situação</th>
                         <th scope="col">Mensalidade</th>
+                        <th scope="col">Observação</th>
+
                         
                         <th scope="col">Ações</th>
                     </tr>
@@ -37,6 +39,7 @@ if($sql->rowCount() > 0){
                         <td><?php echo $usuario['telefone']; ?></td>
                         <td><?php echo $usuario['situacao']; ?></td>
                         <td><?php echo $cifrao .$usuario['mensalidade']; ?></td>
+                        <td><?php echo $usuario['observacao']; ?></td>
                         
                         <td>
                             <div class="grid-edit-delete">

@@ -36,6 +36,14 @@ require 'includes/header.php';
                             <input class="form-control" type="password" name="senha">
                         </label>
                     </div>
+                    <div class="mb-3">
+                    <label class="form-label my-label">Observação:
+                        <textarea class="form-control" name="observacao" cols="60" rows="5"; style="width: 100%"></textarea>
+                    </label>
+
+                    </div>
+
+
                     <div class="btn-save">
                         <input class="btn btn-primary" type="submit" value="SALVAR">
                     </div>

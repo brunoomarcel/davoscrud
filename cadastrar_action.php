@@ -6,11 +6,11 @@ require 'cadastrar.php';
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_VALIDATE_INT);
-$situacao = $_POST['situacao'];
 $mensalidade = filter_input(INPUT_POST, 'mensalidade');
 $senha = filter_input(INPUT_POST, 'senha');
 
-// $observacao = filter_input(INPUT_POST, 'observacao');
+$situacao = $_POST['situacao'];
+$observacao = $_POST['observacao'];
 
 
 if($nome && $email && $telefone && $senha){
@@ -21,7 +21,7 @@ if($nome && $email && $telefone && $senha){
     
     if($sql->rowCount() === 0){
 
-        $sql = $pdo->prepare("INSERT INTO usuarios(nome, email, telefone, situacao, mensalidade, senha)  VALUES (:nome, :email, :telefone, :situacao, :mensalidade, :senha)");
+        $sql = $pdo->prepare("INSERT INTO usuarios(nome, email, telefone, situacao, mensalidade, senha, observacao)  VALUES (:nome, :email, :telefone, :situacao, :mensalidade, :senha, :observacao)");
         
         $sql->bindValue(':nome', $nome);
         $sql->bindValue(':email', $email);
@@ -29,7 +29,7 @@ if($nome && $email && $telefone && $senha){
         $sql->bindValue(':situacao', $situacao);
         $sql->bindValue(':mensalidade', $mensalidade);
         $sql->bindValue(':senha', $senha);
-        // $sql->bindValue(':observacao', $observacao);
+        $sql->bindValue(':observacao', $observacao);
         $sql->execute();
         
         header("Location: index.php");
