@@ -1,14 +1,7 @@
 <?php
 require 'includes/header.php';
 
-// $pdo = new PDO("mysql:dbname=davoscrud;host=localhost", "root", "");
-
-// $sql = $pdo->query('SELECT * FROM usuarios');
-
-// $dados = $sql->fetchAll(pdo::FETCH_ASSOC);
-
-// echo '<pre>';
-// print_r($dados);
+$cifrao = 'R$ ';
 
 require 'config.php';
 $lista = [];
@@ -43,7 +36,7 @@ if($sql->rowCount() > 0){
                         <td><?php echo $usuario['email']; ?></td>
                         <td><?php echo $usuario['telefone']; ?></td>
                         <td><?php echo $usuario['situacao']; ?></td>
-                        <td><?php echo $usuario['mensalidade']; ?></td>
+                        <td><?php echo $cifrao .$usuario['mensalidade']; ?></td>
                         
                         <td>
                             <div class="grid-edit-delete">

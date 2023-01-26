@@ -22,11 +22,10 @@ require 'includes/header.php';
                             <input class="form-control"  type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" >
                         </label>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label my-label">Situação
-                            <input class="form-control" type="text" name="situacao">
-                        </label>
-                    </div>
+                    <select class="form-select" aria-label="Default select example" name="situacao">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
                     <div class="mb-3">
                         <label class="form-label my-label">Mensalidade
                             <input class="form-control" type="text" name="mensalidade">
@@ -37,11 +36,6 @@ require 'includes/header.php';
                             <input class="form-control" type="password" name="senha">
                         </label>
                     </div>
-                    <!-- <div class="item">
-                        <label> Observação
-                            <textarea name="observacao" rows="4" cols="50"></textarea>
-                        </label>
-                    </div> -->
                     <div class="btn-save">
                         <input class="btn btn-primary" type="submit" value="SALVAR">
                     </div>

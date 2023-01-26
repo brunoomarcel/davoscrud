@@ -1,14 +1,13 @@
 <?php
 require 'includes/header.php';
 require 'config.php';
+require 'cadastrar.php';
 
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_VALIDATE_INT);
-
-$situacao = filter_input(INPUT_POST, 'situacao');
+$situacao = $_POST['situacao'];
 $mensalidade = filter_input(INPUT_POST, 'mensalidade');
-
 $senha = filter_input(INPUT_POST, 'senha');
 
 // $observacao = filter_input(INPUT_POST, 'observacao');
