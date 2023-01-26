@@ -22,10 +22,16 @@ require 'includes/header.php';
                             <input class="form-control"  type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" >
                         </label>
                     </div>
-                    <select class="form-select" aria-label="Default select example" name="situacao">
-                        <option value="ativo">Ativo</option>
-                        <option value="inativo">Inativo</option>
-                    </select>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Situação:
+                            <select class="form-select" aria-label="Default select example" name="situacao">
+                                
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </label>
+                    </div>
+                    
                     <div class="mb-3">
                         <label class="form-label my-label">Mensalidade
                             <input class="form-control" type="text" name="mensalidade">
