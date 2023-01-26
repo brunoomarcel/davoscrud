@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Jan-2023 às 02:04
+-- Tempo de geração: 26-Jan-2023 às 16:44
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -35,6 +35,7 @@ CREATE TABLE `usuarios` (
   `situacao` varchar(12) NOT NULL,
   `mensalidade` varchar(32) NOT NULL,
   `senha` varchar(32) NOT NULL,
+  `observacao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,12 +43,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `telefone`, `situacao`, `mensalidade`, `senha`, `observacao`) VALUES
-(9, 'Fernanda Albuquerque', 'fernanda@outlook.com', '79988563259', 'ativa', 'R$89,36', '0321456987br', 0),
-(10, 'julio', 'julio@hotmail.com', '79988563256', 'inativo', '58', '159753654', 0),
-(11, 'Tulio Garcia', 'tulio@outlink.com.br', '79985632145', 'inativo', '123', '03ssdd7br', 0),
-(12, 'Alice Senna', 'alice@hotmail.com', '98998877654', 'ativo', '78,9', 'padraosenha', 0),
-(13, 'gabriel', 'gabriel@uuu.com', '91187896541', 'ativo', '85', '0321456987br', 0),
-(14, 'victor', 'victor@abara.com', '79898863256', 'ativo', '58,3', 'padraosenha', 0);
+(34, 'Gustavp', 'gustavo@outlook.com', '79988523698', 'inativo', '87', '987321456', 'Ele está cadastrado'),
+(37, 'André Viana', 'andrevv_01@gmail.com', '83988856326', 'inativo', '89,87', '8956bru@op', 'Nova observação');
 
 --
 -- Índices para tabelas despejadas
@@ -67,7 +64,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
