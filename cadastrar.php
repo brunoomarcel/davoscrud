@@ -1,29 +1,55 @@
 <?php 
 require 'includes/header.php';
 ?>
-
-<h1>Cadastrar Usuário</h1>
-
-<form action="cadastrar_action.php" method="POST">
-    <div class="item">
-        <label> Nome: </label>
-        <input type="text" name="nome">
-    </div>
-    
-    <div class="item">
-        <label>Email: </label>
-        <input type="email" name="email">
-    </div>
-    
-    <div class="item">
-        <label for="telefone">Telefone</label>
-        <input type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" pattern="[0-9]{1,5}">
-    </div>
-
-    <div class="item">
-        <label>Senha: </label>
-        <input type="password" name="senha">
-    </div>
-
-    <input type="submit" value="SALVAR">
-</form>
+<body class="body-cadastrar-page">
+    <main>
+        <div class="container-form cadastrar">
+            <div class="container-form-itself">
+                <h1>Cadastrar Aluno</h1>
+                <form action="cadastrar_action.php" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label my-label"> Nome: 
+                            <input class="form-control" type="text" name="nome">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Email: 
+                            <input class="form-control" type="email" name="email">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Telefone
+                            <input class="form-control"  type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" >
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Situação
+                            <input class="form-control" type="text" name="situacao">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Mensalidade
+                            <input class="form-control" type="text" name="mensalidade">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label my-label">Senha: 
+                            <input class="form-control" type="password" name="senha">
+                        </label>
+                    </div>
+                    <!-- <div class="item">
+                        <label> Observação
+                            <textarea name="observacao" rows="4" cols="50"></textarea>
+                        </label>
+                    </div> -->
+                    <div class="btn-save">
+                        <input class="btn btn-primary" type="submit" value="SALVAR">
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </main>
+    <?php
+        require 'includes/footer.php';
+    ?>
+</body>
