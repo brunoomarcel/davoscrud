@@ -1,6 +1,8 @@
 <?php 
 require 'includes/header.php';
+// echo "O campo mensalidade deve conter apenas números.";
 ?>
+
 <body class="body-cadastrar-page">
     <main>
         <div class="container-form cadastrar">
@@ -19,13 +21,12 @@ require 'includes/header.php';
                     </div>
                     <div class="mb-3">
                         <label class="form-label my-label">Telefone
-                            <input class="form-control"  type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" >
+                            <input class="form-control"  type="tel" name="telefone" required placeholder="(xx) xxxxx-xxxx" maxlength="11">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label class="form-label my-label">Situação:
                             <select class="form-select" aria-label="Default select example" name="situacao">
-                                
                                 <option value="ativo">Ativo</option>
                                 <option value="inativo">Inativo</option>
                             </select>

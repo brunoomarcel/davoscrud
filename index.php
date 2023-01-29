@@ -13,8 +13,14 @@ if($sql->rowCount() > 0){
 
   <body>
     <main>
+        <nav>
+            <!-- <ul style="display:flex; justify-content:space-between; max-width: 500px;">
+                <li>Cadastro</li>
+                <li>Lista de Alunos</li>
+            </ul> -->
+        </nav>
+    <h1>Lista de Alunos</h1>
         <div class="container-tabelas">
-            <h1>Lista de Alunos</h1>
             <table class="table">
                 <thead>
                     <tr>

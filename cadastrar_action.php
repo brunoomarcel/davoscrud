@@ -6,7 +6,7 @@ require 'cadastrar.php';
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_VALIDATE_INT);
-$mensalidade = filter_input(INPUT_POST, 'mensalidade');
+$mensalidade = filter_input(INPUT_POST, 'mensalidade', FILTER_VALIDATE_FLOAT);
 $senha = filter_input(INPUT_POST, 'senha');
 
 $situacao = $_POST['situacao'];
