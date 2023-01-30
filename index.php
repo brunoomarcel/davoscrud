@@ -1,3 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Usuários</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="/davoscrud/css/style.css">
+    </head>
+     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Cadastro</a></li>
+                    <li><a href="/davoscrud/?class=StudentController&method=listStudents">Listagem</a></li>
+                    <li><a href="#">Edição</a></li>
+                </ul>
+            </nav>
+        </header>
+        <?php
+            require 'Controller/StudentController.php';
+            $controller = new StudentController();
+            
+            if(isset($_REQUEST) && !empty($_REQUEST['class'])){
+                if(method_exists($_REQUEST['class'], $_REQUEST['method'])){
+                    $method = $_REQUEST['method'];
+                    call_user_func(array($controller, $method));
+                }
+            }
+            $controller->show();
+        ?>
+        <footer>
+            <div class="container-footer">
+                <p>Copyright © Todos os direitos reservados.</p>
+                <p>BM Cadastro Escolar</p>
+            </div>
+        </footer>
+  
+    </body>
+</html>
 <?php
 require 'includes/header.php';
 
