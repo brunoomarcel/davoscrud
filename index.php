@@ -11,12 +11,19 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="#">Cadastro</a></li>
+                    <li><a href="/davoscrud/">Cadastro</a></li>
                     <li><a href="/davoscrud/?class=StudentController&method=listStudents">Listagem</a></li>
                     <li><a href="#">Edição</a></li>
                 </ul>
             </nav>
         </header>
+        <?php 
+            session_start();
+            if($_SESSION['feedback']){
+                echo $_SESSION['feedback'];
+            }
+            session_abort();
+        ?>
         <?php
             require 'Controller/StudentController.php';
             $controller = new StudentController();

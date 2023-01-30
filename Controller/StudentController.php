@@ -1,5 +1,5 @@
 <?php
-require_once './config.php';
+require './config.php';
 
 class StudentController{
     private $html;
@@ -15,6 +15,12 @@ class StudentController{
             $students++;
         }
         $this->html = str_replace('{{list}}', $students, $this->html);
+    }
+
+    public function storeStudent(){
+        
+        header("Location: http://localhost/davoscrud", true, 200);
+        exit;
     }
 
     public function show(){
