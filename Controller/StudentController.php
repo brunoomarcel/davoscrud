@@ -22,7 +22,6 @@ class StudentController{
                 $this->html = str_replace("{{feedback}}", $feedback , $this->html);
             }
         }
-        $this->html = str_replace('{{list}}', $students, $this->html);
     }
     private function getRegistrationFeedback($component = 'success', $msg = 'Student registered'){
         $feedbackComponent = file_get_contents(PROJECT_ROOT.'views/components/feedback/'.$component.'.html');
@@ -30,7 +29,6 @@ class StudentController{
         return $feedbackComponent;
     }
 
-    public function storeStudent(){
     private function resetHtml($path = ''){
         $this->html = file_get_contents(PROJECT_ROOT.$path);
     }
@@ -43,11 +41,11 @@ class StudentController{
             $count++;
         }
         
-        header("Location: http://localhost/davoscrud", true, 200);
-        exit;
+        $this->html = str_replace('{{list}}', $count, $this->html);
     }
 
     public function show(){
         echo $this->html;
     }
+
 }
