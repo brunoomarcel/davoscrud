@@ -39,4 +39,31 @@ class Student{
         $students = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $students;
     }
+
+    public static function getStudent($id){
+        $sql = "SELECT * FROM usuarios WHERE id = $id";
+        $conn = self::getConnection();
+        $student = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $student;
+    }
+
+    public static function updateStudent($id, $data = []){
+        $student = self::getStudent($id);
+        $sql = "UPDATE usuarios SET id = :id, 
+                                    nome = :nome, 
+                                    email = :email, 
+                                    telefone = :telefone, 
+                                    situacao = :situacao, 
+                                    observacao = :observacao, 
+                                    mensalidade = :mensalidade, 
+                                    senha = :senha WHERE id = $id";
+        $conn = self::getConnection();
+        $stmt = $conn->prepare($sql);
+        $data[':senha'] = $student[0]['senha'];
+        $result = $stmt->execute($data);
+        if(!$result){
+            return "Erro ao editar dados";
+        }
+        return true;
+    }
 }
