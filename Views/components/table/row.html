@@ -1,0 +1,13 @@
+<tr>
+    <td>{{nome}}</td>
+    <td>{{mensalidade}}</td>
+    <td>{{situacao}}</td>
+    <td>{{telefone}}</td>
+    <td>{{email}}</td>
+    <td>{{observacao}}</td>
+    <td>
+        <form action="/davoscrud/?class=StudentController&method=editStudent&id={{id}}" method="POST">
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+    </td>
+</tr>
