@@ -1,5 +1,6 @@
 <?php
 require './config.php';
+require PROJECT_ROOT.'Model/Student.php';
 
 class StudentController{
     private $html;
