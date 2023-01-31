@@ -9,20 +9,20 @@ class Student{
     }
 
     public static function store($args = []){
-        $sql = "INSERT INTO self::$studentTable(nome, email, telefone, situacao, mensalidade, senha, observacao)  
+        $sql = "INSERT INTO usuarios(nome, email, telefone, situacao, mensalidade, senha, observacao)  
                 VALUES (:nome, :email, :telefone, :situacao, :mensalidade, :senha, :observacao)";
 
         $conn = self::getConnection();
-
-        if($conn->prepare($sql)){
-            $conn->bindParam(':nome', $args['nome']);
-            $conn->bindParam(':email', $args['email']);
-            $conn->bindParam(':telefone', $args['telefone']);
-            $conn->bindParam(':situacao', $args['situacao']);
-            $conn->bindParam(':mensalidade', $args['mensalidade']);
-            $conn->bindParam(':senha', $args['senha']);
-            $conn->bindParam(':observacao', $args['observacao']);
-            $execution = $conn->execute();
+        $stmt = $conn->prepare($sql);
+        if($stmt){
+            $stmt->bindParam(':nome', $args['nome']);
+            $stmt->bindParam(':email', $args['email']);
+            $stmt->bindParam(':telefone', $args['telefone']);
+            $stmt->bindParam(':situacao', $args['situacao']);
+            $stmt->bindParam(':mensalidade', $args['mensalidade']);
+            $stmt->bindParam(':senha', $args['senha']);
+            $stmt->bindParam(':observacao', $args['observacao']);
+            $execution = $stmt->execute();
             if($execution){
                 return "Aluno cadastrado";
             }else{
