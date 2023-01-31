@@ -9,11 +9,6 @@ class StudentController{
         $this->html = str_replace("{{feedback}}", '' , $this->html);
     }
 
-    public function listStudents(){
-        $this->html = file_get_contents(PROJECT_ROOT.'views/list.html');
-        $students = 0;
-        for ($i=0; $i < 10; $i++) { 
-            $students++;
     public function storeStudent(){
         if(isset($_REQUEST) && !empty($_REQUEST)){
             $this->resetHtml('views/register.html');
@@ -39,6 +34,13 @@ class StudentController{
         $this->html = file_get_contents(PROJECT_ROOT.$path);
     }
 
+    public function listStudents(){
+        $this->html = file_get_contents(PROJECT_ROOT.'views/list.html');
+        $students = Student::all();
+        $count = 0;
+        foreach ($students as $student) {
+            $count++;
+        }
         
         header("Location: http://localhost/davoscrud", true, 200);
         exit;
