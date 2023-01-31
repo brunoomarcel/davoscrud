@@ -35,6 +35,10 @@ class StudentController{
     }
 
     public function storeStudent(){
+    private function resetHtml($path = ''){
+        $this->html = file_get_contents(PROJECT_ROOT.$path);
+    }
+
         
         header("Location: http://localhost/davoscrud", true, 200);
         exit;
