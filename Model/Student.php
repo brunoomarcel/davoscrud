@@ -32,4 +32,11 @@ class Student{
             return "Dados inconsistentes";
         }
     }
+
+    public static function all(){
+        $sql = "SELECT * FROM usuarios";
+        $conn = self::getConnection();
+        $students = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $students;
+    }
 }
