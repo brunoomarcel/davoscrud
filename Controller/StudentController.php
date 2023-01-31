@@ -36,16 +36,31 @@ class StudentController{
     public function listStudents(){
         $this->html = file_get_contents(PROJECT_ROOT.'views/list.html');
         $students = Student::all();
-        $count = 0;
-        foreach ($students as $student) {
-            $count++;
+        if(count($students) > 0){
+            $this->populateListViewWithStudents($students);
+            return;
         }
-        
-        $this->html = str_replace('{{list}}', $count, $this->html);
+    }
+    private function populateListViewWithStudents($students = []){
+        $rowComponent = file_get_contents(PROJECT_ROOT . '/views/components/table/row.html');
+        $rowComponentsList = '';
+        foreach ($students as $student) {
+            $rowComponentsList .= $rowComponent;
+            $rowComponentsList = $this->getReplacedHtmlMarkupWithStudentData($rowComponentsList, $student);
+        }
+        $this->html = str_replace('{{list}}', $rowComponentsList, $this->html);
+    }
+    private function getReplacedHtmlMarkupWithStudentData($html, $studentData = []){
+        $html = str_replace( '{{nome}}', $studentData['nome'], $html );
+        $html = str_replace( '{{mensalidade}}', $studentData['mensalidade'], $html );
+        $html = str_replace( '{{situacao}}', $studentData['situacao'], $html );
+        $html = str_replace( '{{telefone}}', $studentData['telefone'], $html );
+        $html = str_replace( '{{email}}', $studentData['email'], $html );
+        $html = str_replace( '{{observacao}}', $studentData['observacao'], $html );
+        return $html;
     }
 
     public function show(){
         echo $this->html;
     }
-
 }
